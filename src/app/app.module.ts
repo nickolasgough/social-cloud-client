@@ -5,13 +5,14 @@ import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ComponentsModule } from './components/components.module';
 import { ServicesModule } from './services/services.module';
-import { LoginComponent } from './components/login/login.component';
 import { GuardsModule } from './guards/guards.module';
 import { AuthGuard } from './guards/auth/auth.guard';
+import { PagesModule } from './pages/pages.module';
+import { LoginPageComponent } from './pages/login/login.component';
 
 const routes: Routes = [
-  {path: 'login', component: LoginComponent},
-  {path: 'feed', component: LoginComponent, canActivate: [AuthGuard]},
+  {path: 'login', component: LoginPageComponent},
+  {path: 'feed', component: LoginPageComponent, canActivate: [AuthGuard]},
   {path: '**', redirectTo: 'login'}
 ];
 
@@ -26,7 +27,8 @@ const routes: Routes = [
 
     ComponentsModule,
     ServicesModule,
-    GuardsModule
+    GuardsModule,
+    PagesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
