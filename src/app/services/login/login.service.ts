@@ -45,7 +45,9 @@ export class LoginService {
           console.log('Image URL: ' + profile.getImageUrl());
           console.log('Email: ' + profile.getEmail());
 
-          this.userService.createUser(profile.getName());
+          this.userService.createUser(profile.getName()).subscribe(
+            result => console.log(result)
+          );
 
           this.setCookie(profile.getName());
         });
